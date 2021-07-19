@@ -1,0 +1,96 @@
+.main-side-content {
+  width: 1200px;
+  height: 1000px;
+
+  display: flex;
+
+  margin: 0 auto;
+}
+
+/* ------- Navigation Bar ------- */
+.nav-div {
+  font-size: 30px;
+  font-family: "Bangers", cursive;
+
+  width: 1200px;
+  height: 70px;
+
+  display: flex;
+
+  margin: 0 auto;
+}
+
+/* --- Navi - Logo 부분 --- */
+.nav-logo {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-logo-title {
+  margin-top: 8px;
+
+  font-size: 40px;
+}
+
+.title {
+  color: black;
+  text-decoration: none;
+}
+
+.color-logo {
+  width: 50px;
+  height: 50px;
+
+  margin-right: 5px;
+}
+
+/* --- Navi - 유저 관련 및 검색 부분 --- */
+
+/* --- 유저 부분 --- */
+.nav-interaction {
+  width: 1200px;
+  height: 70px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-user {
+  margin-top: 8px;
+  margin-right: 50px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-user-link {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+/* --- 검색 부분 --- */
+.search-div {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  font-size: 20px;
+  font-family: "배달의민족 주아";
+
+  height: 40px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-btn {
+  font-size: 30px;
+
+  border: none;
+  background-color: white;
+}

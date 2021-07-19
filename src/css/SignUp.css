@@ -1,0 +1,42 @@
+.SignUpForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-text {
+  text-decoration: underline;
+}
+
+.signup-label {
+  font-size: 25px;
+  font-family: "Bangers", cursive;
+}
+
+.signup-input {
+  border-color: rgb(243, 70, 70);
+  border-style: solid;
+  font-size: 18px;
+  padding-left: 5%;
+}
+
+.signupBtn {
+  background-color: rgb(243, 70, 70);
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 25px;
+  margin: 4px 2px;
+  color: white;
+  font-family: "Bangers";
+  cursor: pointer;
+}

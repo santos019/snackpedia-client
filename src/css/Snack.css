@@ -1,0 +1,34 @@
+h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Bangers", cursive;
+}
+
+.my-masonry-grid {
+  margin-top: 90px;
+  display: flex;
+}
+
+.my-masonry-grid_column {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.snack img {
+  animation: fadein 3s;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  box-shadow: 0.3px 0.4px 0.2px rgb(206, 96, 96);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

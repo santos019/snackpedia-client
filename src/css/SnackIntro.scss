@@ -1,0 +1,30 @@
+.Intro {
+  //display: block;
+  width: 800px;
+  float: left;
+}
+// .ant-tabs-tab-active {
+//   background-color: #e94444;
+// }
+
+// .ant-tab {
+//   background-color: #e94444;
+// }
+// .ant-tabs-nav-list {
+//   background-color: #e94444;
+// }
+
+// .ant-tabs-card {
+//   background-color: #382929;
+// }]
+//.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab,
+//.ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  //background-color: #e94444;
+}
+.ant-tabs-card:active > .ant-tabs-nav:active .ant-tabs-tab:active {
+  background-color: #e94444;
+}
+.ant-tabs-card:visited > .ant-tabs-nav:visited .ant-tabs-tab:visited {
+  background-color: #e94444;
+}

@@ -1,0 +1,64 @@
+.RegisterMain {
+  float: right;
+  margin: 10%;
+  //  padding: 10%;
+  background-color: aqua;
+  height: 100px;
+  width: 80%;
+}
+.RegisterTitle {
+  font-size: 30px;
+  text-align: left;
+  border-bottom: red solid;
+  //border-style: solid;
+  background-color: blue;
+}
+.RegisterImage {
+  float: left;
+  margin-left: 10%;
+  margin-top: 5%;
+  border: 3px dashed red;
+  border-radius: 2em;
+}
+.Register_Image {
+  height: 100px;
+
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.RegisterImgae_Text {
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+.Register_Name {
+  background-color: seagreen;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+.Register_Name_text {
+  border: 2px solid red;
+  margin-left: 30px;
+  width: 200px;
+  margin-right: 30px;
+}
+.Register_Category {
+  background-color: steelblue;
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.SelectBox1 {
+  border: 2px solid red;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.Register_data {
+  float: left;
+  margin-top: 5%;
+  margin-left: 5%;
+}
