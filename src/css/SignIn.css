@@ -1,0 +1,46 @@
+.SignInForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 70vh;
+}
+
+.signin-text {
+  font-family: "Bangers", cursive;
+  text-decoration: underline;
+}
+
+/* .snackMerge-img {
+  width: 20%;
+} */
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-label {
+  font-size: 25px;
+  font-family: "Bangers", cursive;
+}
+
+.signin-input {
+  border-color: rgb(243, 70, 70);
+  border-style: solid;
+  font-size: 18px;
+  padding-left: 5%;
+}
+
+.signin-button {
+  background-color: rgb(243, 70, 70);
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 25px;
+  margin: 4px 2px;
+  color: white;
+  font-family: "Bangers";
+  cursor: pointer;
+}
