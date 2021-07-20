@@ -136,6 +136,40 @@ const SnackRegister = () => {
             </div>
           </Checkbox.Group>
         </div>
+        <div className="attention_nu">
+          {/* <SnackAllergyCheck/> */}
+          
+          <Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
+            <div className="checkbox2">
+            <p className="checkboxtitle2">주의성분</p>
+              <Col span={8}>
+                <Checkbox value="A" className="checkbox_2"><p className="checkindex2">MSG</p></Checkbox>
+              </Col>
+              <Col span={8}>
+
+                <Checkbox value="B" className="checkbox_2"><p className="checkindex2">합성착생료</p></Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="C" className="checkbox_2"><p className="checkindex2">차아황산나트륨</p></Checkbox>
+              </Col>
+              <Col span={8}> 
+                <Checkbox value="D" className="checkbox_2"><p className="checkindex2">아황산염</p></Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="E" className="checkbox_2"><p className="checkindex2">설탕</p></Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="F" className="checkbox_2"><p className="checkindex2">포화지방</p></Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="G" className="checkbox_2"><p className="checkindex2">팽창제</p></Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="H" className="checkbox_2"><p className="checkindex2">아스파탐</p></Checkbox>
+              </Col>
+            </div>
+          </Checkbox.Group>
+        </div>
       </div>
       <div className="Confirm">
         <button className="Confirmbtn"
