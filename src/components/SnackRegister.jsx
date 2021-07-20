@@ -116,12 +116,13 @@ const SnackRegister = () => {
                 <Checkbox value="A">A</Checkbox>
               </Col>
               <Col span={8}>
+                
                 <Checkbox value="B">B</Checkbox>
               </Col>
               <Col span={8}>
                 <Checkbox value="C">C</Checkbox>
               </Col>
-              <Col span={8}>
+              <Col span={8}> 
                 <Checkbox value="D">D</Checkbox>
               </Col>
               <Col span={8}>
