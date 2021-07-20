@@ -3,16 +3,22 @@ import axios from "axios";
 import Masonry from "react-masonry-css";
 import Snack from "./Snack";
 
-function Search({ search, score }) {
+function Search({ search, resetInput }) {
   // TODO 검색된 정보에 따라 페이지를 따로 구현
+  const url = `http://localhost:8080/search`;
+
   const [searchSnack, setSearchSnack] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:3000/data/data.json").then((res) => {
-      console.log(`검색어 : ${search}`);
-      setSearchSnack(res.data.data);
-    });
-  }, []); // 마운트만 할 경우 [] 추가
+  axios({
+    method: "GET",
+    url,
+    data: {
+      search,
+    },
+  }).then((res) => {
+    console.log(res.data);
+    resetInput();
+  });
 
   const breakpointColumnsObj = {
     default: 4,

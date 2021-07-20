@@ -5,7 +5,6 @@ import axios from "axios";
 import SnackList from "./SnackList";
 import SnackDetail from "./SnackDetail";
 import Search from "./Search";
-import Test from "./Test";
 
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
@@ -37,6 +36,10 @@ function App() {
     return <Link to="search"></Link>;
   };
 
+  const resetInput = () => {
+    setSearch("");
+  };
+
   return (
     <div className="App">
       <div className="nav-div">
@@ -62,10 +65,6 @@ function App() {
             </Link>
             <Link to="/signup" className="nav-user-link">
               Mypage
-            </Link>
-
-            <Link to="/test" className="nav-user-link">
-              TEST
             </Link>
           </div>
 
@@ -156,11 +155,10 @@ function App() {
           <Route
             path="/search"
             render={() => {
-              return <Search search={search} />;
+              return <Search search={search} resetInput={resetInput} />;
             }}
           />
 
-          <Route path="/test" component={Test} />
           <Route exact="exact" path="/signin" component={SignIn} />
           <Route exact="exact" path="/signup" component={SignUp} />
         </Switch>
