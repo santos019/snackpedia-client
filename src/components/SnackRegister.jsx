@@ -109,9 +109,9 @@ const SnackRegister = () => {
           </div>
         </div>
         <div className="Allergy">
-          {/* <SnackAllergyCheck/> */}
+          <div className = "CheckBox1">
           <Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
-            <Row>
+           
               <Col span={8}>
                 <Checkbox value="A">A</Checkbox>
               </Col>
@@ -128,8 +128,9 @@ const SnackRegister = () => {
               <Col span={8}>
                 <Checkbox value="E">E</Checkbox>
               </Col>
-            </Row>
+           
           </Checkbox.Group>
+          </div>
         </div>
       </div>
       <div className="Confirm">
