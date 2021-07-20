@@ -116,7 +116,7 @@ const SnackRegister = () => {
                 <Checkbox value="A">A</Checkbox>
               </Col>
               <Col span={8}>
-                
+
                 <Checkbox value="B">B</Checkbox>
               </Col>
               <Col span={8}>
@@ -133,10 +133,9 @@ const SnackRegister = () => {
         </div>
       </div>
       <div className="Confirm">
-        <button
-          className="Confirmbtn"
+        <button className="Confirmbtn"
           //onClick={onClick}
-        >
+        > 
           등록
         </button>
       </div>
