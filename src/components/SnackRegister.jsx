@@ -11,9 +11,9 @@ import SnackTag,{oily,
   soft} from "./SnackTag";
 
 //import SnackAllergyCheck from "./SnackAllergyCheck";
-import SnackUploadImg from "./SnackUploadImg";
+import SnackUploadImg, { fd } from "./SnackUploadImg";
 import "antd/dist/antd.css";
-import Register_Image from "../images/Register_Image.png";
+
 import "../css/SnackRegister.scss";
 import { Select } from "antd";
 import { Checkbox, Row, Col } from "antd";
@@ -326,10 +326,9 @@ const SnackRegister = () => {
           carbo : snackCarbo,
           amount : snackAmount,
           favorite : 0,
-          snackPath : null,
+          snackPath : fd,
           category:cate,
-      },
-      tag : {
+     
         oily : oily,
         spicy : spicy,
         sweet : sweet,
@@ -338,9 +337,9 @@ const SnackRegister = () => {
         flat : flat,
         crispy : crispy,
         soft : soft,
-    },
+    
 
-        allergy:{
+       
              milk : milk,
         bean : bean,
         wheat : wheat,
@@ -348,8 +347,8 @@ const SnackRegister = () => {
         fork : fork,
         fish : fish,
 
-       },
-       attention_nu:{
+       
+     
          MSG:MSG,
          color:color,
          atsodium:atsodium,
@@ -371,21 +370,7 @@ const SnackRegister = () => {
       });
    
   };
-  const handleChangeFile = (event) => {
-    let reader = new FileReader();
-
-    reader.onloadend = () => {
-      // 2. 읽기가 완료되면 아래코드가 실행됩니다.
-      const base64 = reader.result;
-      if (base64) {
-        setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
-      }
-    }
-    if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-      setImgFile(event.target.files[0]); // 파일 상태 업데이트
-    }
-  }
+  
   return (
     
     <div className="RegisterMain">
