@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../css/SignIn.css";
 import { useHistory } from "react-router";
 
-function SignIn() {
+function SignIn({ handleSignin }) {
   const [userEmail, setuserEmail] = useState("");
   const [userPassword, setuserPassword] = useState("");
 
@@ -33,12 +33,17 @@ function SignIn() {
           },
         })
         .then((res) => {
-          // if()
-          console.log("로그인 성공 데이터 >>>>>>>>> " + res.data);
-          // document.cookie = `keykey=${res.data}`;
-          // res.data === 1
-          if (res.data === userEmail) {
-            document.cookie = `keykey=${res.data}`;
+          if (res.data !== null) {
+            let date = new Date();
+            date.setDate(date.getDate() + 7);
+
+            let cookie = `key=${res.data.userName};`;
+            cookie += "expires=" + date.toUTCString();
+
+            document.cookie = cookie;
+
+            handleSignin();
+
             history.push("/");
           } else {
             // res.data === 0

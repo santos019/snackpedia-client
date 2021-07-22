@@ -1,5 +1,6 @@
 import { Link, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 
 import SnackList from "./SnackList";
@@ -19,6 +20,7 @@ import colorLogo from "../images/color_snack.png";
 function App() {
   const [snack, setSnack] = useState([]);
   const [search, setSearch] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     axios.get("http://localhost:8080/").then((res) => {
@@ -96,9 +98,23 @@ function App() {
                 </Link>
               </div>
             ) : (
-              <Link to="/signup" className="nav-user-link">
-                Mypage
-              </Link>
+              <div>
+                <Link to="/signup" className="nav-user-link">
+                  Mypage
+                </Link>
+                <button
+                  className="nav-user-link-signout-btn"
+                  onClick={() => {
+                    let date = new Date();
+                    date.setDate(date.getDate() - 100);
+                    document.cookie = `key=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
+
+                    history.push("/");
+                  }}
+                >
+                  Signout
+                </button>
+              </div>
             )}
           </div>
 
@@ -133,7 +149,7 @@ function App() {
                 className="sidebar-link"
                 onClick={() => handleCategory("income")}
               >
-                수입제과
+                🛬 수입제과
               </Link>
             </li>
             <li>
@@ -142,7 +158,7 @@ function App() {
                 className="sidebar-link"
                 onClick={() => handleCategory("icecream")}
               >
-                아이스크림
+                🍦 아이스크림
               </Link>
             </li>
             <li>
@@ -151,7 +167,7 @@ function App() {
                 className="sidebar-link"
                 onClick={() => handleCategory("cookie")}
               >
-                과자 / 쿠키
+                🍪 과자 / 쿠키
               </Link>
             </li>
             <li>
@@ -160,7 +176,7 @@ function App() {
                 className="sidebar-link"
                 onClick={() => handleCategory("chocolate")}
               >
-                초콜릿 / 캔디
+                🍭 초콜릿 / 캔디
               </Link>
             </li>
             <li>
@@ -190,7 +206,13 @@ function App() {
           />
           <Route path="/SnackRegister" component={SnackRegister} />
           <Route path="/snack/detail/:id" component={SnackDetail} />
-          <Route exact path="/signin" component={SignIn} />
+          <Route
+            exact
+            path="/signin"
+            render={() => {
+              return <SignIn />;
+            }}
+          />
           <Route exact path="/signup" component={SignUp} />
         </Switch>
       </div>

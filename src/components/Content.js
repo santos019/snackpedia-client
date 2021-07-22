@@ -11,9 +11,10 @@ function Content({ onAllComments, snackId }) {
 
   const onClick = (e) => {
     let form = new FormData();
+    let userName = document.cookie.match("(^|;) ?" + "key" + "=([^;]*)(;|$)");
 
     form.append("content", content);
-    form.append("userName", "chan");
+    form.append("userName", userName[2]);
     form.append("snackId", snackId);
 
     axios({

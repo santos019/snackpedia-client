@@ -5,6 +5,7 @@ function Comment({ id, userName, content }) {
   return (
     <div className="detail-comment">
       <h3>{userName}</h3>
+      <hr className="detail-comment-hr" />
       <div>{content}</div>
     </div>
   );

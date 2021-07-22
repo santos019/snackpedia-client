@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 import colorLogo from "../images/color_snack.png";
 import SnackTag, {
@@ -208,6 +209,7 @@ const SnackRegister = () => {
   const [snackProtein, setsnackProtein] = useState("");
   const [snackSodium, setsnackSodium] = useState("");
   const [snackSugar, setsnackSugar] = useState("");
+  let history = useHistory();
 
   const onsnackNameHandler = (event) => {
     setsnackName(event.currentTarget.value);
@@ -285,50 +287,14 @@ const SnackRegister = () => {
     })
       .then((res) => {
         console.log(res);
+
+        alert("과자를 등록했습니다");
+        history.push("/");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
-
-    // params: {
-    //   snackName: snackName,
-    //   sodium: snackSodium,
-    //   protein: snackProtein,
-    //   fat: snackFat,
-    //   calories: snackCalories,
-    //   chol: snackChol,
-    //   sugar: snackSugar,
-    //   carbo: snackCarbo,
-    //   amount: snackAmount,
-    //   favorite: 0,
-    //   file: images,
-    //   category: cate,
-
-    //   oily: oily,
-    //   spicy: spicy,
-    //   sweet: sweet,
-    //   salty: salty,
-    //   sour: sour,
-    //   flat: flat,
-    //   crispy: crispy,
-    //   soft: soft,
-
-    //   milk: milk,
-    //   bean: bean,
-    //   wheat: wheat,
-    //   egg: egg,
-    //   fork: fork,
-    //   fish: fish,
-
-    //   MSG: MSG,
-    //   color: color,
-    //   atsodium: atsodium,
-    //   sulfite: sulfite,
-    //   atsugar: atsugar,
-    //   atfat: atfat,
-    //   swelling: swelling,
-    //   asparm: asparm,
-    // },
   };
 
   return (
@@ -366,10 +332,10 @@ const SnackRegister = () => {
             onChange={handleChange}
             className="SelectBox1"
           >
-            <Option value="snackdefalut">수입제과</Option>
+            <Option value="income">수입제과</Option>
             <Option value="icecream">아이스크림</Option>
-            <Option value="snackcookie">과자 / 쿠키</Option>
-            <Option value="chococandy">초콜릿 / 캔디</Option>
+            <Option value="cookie">과자 / 쿠키</Option>
+            <Option value="chocolate">초콜릿 / 캔디</Option>
           </Select>
         </div>
         <div className="Register_Tag">
