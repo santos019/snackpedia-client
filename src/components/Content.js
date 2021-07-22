@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../css/MyDetail.css";
 
+var re_comment = [];
+// var result = {
+//   id: 0,
+//   content: 0,
+//   userName: 0,
+//   user: 0,
+//   snack: 0,
+// };
 function Content({ onAllComments }) {
   const [content, setContent] = useState("");
 
@@ -11,73 +19,36 @@ function Content({ onAllComments }) {
   };
 
   const onClick = (e) => {
-    // axios({
-    //   method: "POST",
-    //   url: "http://localhost:8080/comment/regist",
-    //   data: {
-    //     // content: this.state.content,
-    //     // TODO 연습삼아 과자 등록여기서 해보기
-    //     // TODO 댓글 등록할 때 Session에 유저테이블의 id를 줘서 댓글 등록할 때 find 한 다음 저장하고 댓글 저장
-    //     snackName: "꼬깔콘",
-    //     sodium: 10,
-    //     protein: 10,
-    //     fat: 10,
-    //     calories: 10,
-    //     chol: 10,
-    //     sugar: 10,
-    //     carbo: 10,
-    //     amount: 10,
-    //     snackPath: null,
-    //     category: "snack",
-    //     oily: 0,
-    //     spicy: 0,
-    //     sweet: 0,
-    //     salty: 0,
-    //     sour: 1,
-    //     flat: 1,
-    //     crispy: 1,
-    //     soft: 1,
-    //     milk: "milk",
-    //     bean: "bean",
-    //     wheat: "wheat",
-    //     egg: "egg",
-    //     fork: "fork",
-    //     fish: "fish",
-    //   },
-    // })
     axios
       .post("http://localhost:8080/comment/regist", null, {
         params: {
-          snackName: "꼬깔콘",
-          sodium: 10,
-          protein: 10,
-          fat: 10,
-          calories: 10,
-          chol: 10,
-          sugar: 10,
-          carbo: 10,
-          amount: 10,
-          snackPath: null,
-          category: "snack",
-          oily: 0,
-          spicy: 0,
-          sweet: 0,
-          salty: 0,
-          sour: 1,
-          flat: 1,
-          crispy: 1,
-          soft: 1,
-          milk: "milk",
-          bean: "bean",
-          wheat: "wheat",
-          egg: "egg",
-          fork: "fork",
-          fish: "fish",
+          id: 9,
+          content: content,
+          userName: 7,
+          user: 8,
+          snack: 9,
         },
       })
       .then((res) => {
-        console.log("Regist");
-        // onAllComments(res);
+        let result = {
+          id: 0,
+          content: 0,
+          userName: 0,
+          user: 0,
+          snack: 0,
+        };
+        //console.log("res=", res.data);
+
+        result.id = res.data.id;
+        result.content = res.data.content;
+        result.userName = res.data.userName;
+        result.user = res.data.user;
+        result.snack = res.data.snack;
+
+        console.log(result);
+        // re_comment = res;
+        // console.log("resww=", re_comment);
+        onAllComments(result);
       })
       .catch((err) => {
         console.log("XX");
@@ -105,3 +76,4 @@ function Content({ onAllComments }) {
 }
 
 export default Content;
+export { re_comment };

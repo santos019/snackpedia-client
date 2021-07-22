@@ -325,7 +325,7 @@ const SnackRegister = () => {
           carbo : snackCarbo,
           amount : snackAmount,
           favorite : 0,
-          snackPath : 0,
+          snackPath : images,
           category:cate,
      
         oily : oily,

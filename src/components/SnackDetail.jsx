@@ -5,7 +5,7 @@ import Masonry from "react-masonry-css";
 
 import Comment from "./Comment";
 import axios from "axios";
-import Content from "./Content";
+import Content,{re_comment} from "./Content";
 
 class SnackDetail extends Component {
   constructor(props) {
@@ -44,10 +44,11 @@ class SnackDetail extends Component {
     if (location.state === undefined) {
       history.push("/");
     }
-
+//db에서 받아오는 함수
     axios.get("http://localhost:3000/data/comment.json").then((res) => {
+    // res=re_comment;
       this.setState({ comment: res.data.comment });
-
+    console.log("heee",res);
       this.setState({
         allComment: res.data.comment.map((comment) => {
           return (
@@ -62,10 +63,12 @@ class SnackDetail extends Component {
 
       console.log(this.state.comment);
     });
+    
   }
 
   onAllComments(comment) {
-    this.setState({ allComment: this.state.allComment.push(comment) });
+    let {allComment} = this.state;
+    this.setState({ allComment: comment });
   }
 
   render() {
