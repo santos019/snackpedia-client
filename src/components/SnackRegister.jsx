@@ -11,7 +11,7 @@ import SnackTag,{oily,
   soft} from "./SnackTag";
 
 //import SnackAllergyCheck from "./SnackAllergyCheck";
-import SnackUploadImg, { fd } from "./SnackUploadImg";
+import SnackUploadImg,{images} from "./SnackUploadImg";
 import "antd/dist/antd.css";
 
 import "../css/SnackRegister.scss";
@@ -245,8 +245,7 @@ const SnackRegister = () => {
   const [snackProtein, setsnackProtein] = useState("");
   const [snackSodium, setsnackSodium] = useState("");
   const [snackSugar, setsnackSugar] = useState("");
-  const [imgBase64, setImgBase64] = useState(""); // 파일 base64
-  const [imgFile, setImgFile] = useState(null);	//파일	
+
 
   
   const onsnackNameHandler = (event) => {
@@ -310,7 +309,7 @@ const SnackRegister = () => {
     crispy,
     soft);
     // console.log("CheckableTag = ",CheckableTag);
-
+    console.log("경로222", images);
     axios({
       method: "POST",
       url: "http://localhost:8080/signup",
@@ -326,7 +325,7 @@ const SnackRegister = () => {
           carbo : snackCarbo,
           amount : snackAmount,
           favorite : 0,
-          snackPath : fd,
+          snackPath : 0,
           category:cate,
      
         oily : oily,
