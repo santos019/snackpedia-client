@@ -44,12 +44,12 @@ function App() {
         search: search,
       },
     }).then((res) => {
-      console.log(`검색된 결과 >>>> ${res.data}`);
+      console.log(res.data);
 
-      if (!res.data.data) {
+      if (!res.data) {
         alert("검색된 결과가 없습니다. 다시 검색해 주세요");
       } else {
-        setSnack(res.data.data);
+        setSnack(res.data);
       }
 
       setSearch("");
@@ -166,18 +166,6 @@ function App() {
             <li>
               <Link to="/SnackRegister" className="sidebar-link">
                 과자 등록
-              </Link>
-            </li>
-          </ul>
-
-          <h1>
-            <img src={logo} alt="side-logo" className="sidebar-img" />
-            Notice
-          </h1>
-          <ul>
-            <li>
-              <Link to="/notice" className="sidebar-link">
-                공지사항
               </Link>
             </li>
           </ul>
