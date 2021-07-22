@@ -21,20 +21,16 @@ function App() {
   const [snack, setSnack] = useState([]);
   const [search, setSearch] = useState("");
 
-  console.log(`쿠키 있니? ${document.cookie}`);
-
   useEffect(() => {
-    //TODO document.cookie = "hi=gggg"; // 차선책
-
-    axios.get("http://localhost:8080").then((res) => {
-      // setSnack(res.data.data);
+    axios.get("http://localhost:8080/").then((res) => {
+      console.log(...res.data);
       if (!res.data.length) {
-        console.log("DB에 Data 없으니 목업 데이터를 가져옴");
         axios.get("http://localhost:3000/data/data.json").then((res) => {
           setSnack(res.data.data);
         });
       } else {
-        setSnack(res.data.data);
+        console.log(`SPring Snack >>>> ${res.data}`);
+        setSnack(res.data);
       }
     });
   }, []); // 마운트만 할 경우 [] 추가
