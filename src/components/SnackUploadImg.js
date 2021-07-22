@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
 var images = [];
 function SnackUploadImg() {
-  let history = useHistory();
   const [imgBase64, setImgBase64] = useState([]); // 파일 base64
   const [imgFile, setImgFile] = useState(null); //파일
   const [tag, setTag] = useState([]);

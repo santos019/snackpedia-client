@@ -1,6 +1,5 @@
 import { Link, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 
 import SnackList from "./SnackList";
@@ -23,13 +22,11 @@ function App() {
 
   useEffect(() => {
     axios.get("http://localhost:8080/").then((res) => {
-      console.log(...res.data);
       if (!res.data.length) {
         axios.get("http://localhost:3000/data/data.json").then((res) => {
           setSnack(res.data.data);
         });
       } else {
-        console.log(`SPring Snack >>>> ${res.data}`);
         setSnack(res.data);
       }
     });
@@ -60,6 +57,7 @@ function App() {
   };
 
   const handleCategory = (category) => {
+    console.log(category);
     axios({
       method: "GET",
       url: `http://localhost:8080/snack/${category}`,
@@ -67,7 +65,8 @@ function App() {
         category: category,
       },
     }).then((res) => {
-      setSnack(res.data.data);
+      console.log(`결과 >>>> ${res.data}`);
+      setSnack(res.data);
     });
   };
 
@@ -129,22 +128,38 @@ function App() {
           </h1>
           <ul>
             <li>
-              <Link to="/snack/income" className="sidebar-link">
+              <Link
+                to="/snack/income"
+                className="sidebar-link"
+                onClick={() => handleCategory("income")}
+              >
                 수입제과
               </Link>
             </li>
             <li>
-              <Link to="/snack/icecream" className="sidebar-link">
+              <Link
+                to="/snack/icecream"
+                className="sidebar-link"
+                onClick={() => handleCategory("icecream")}
+              >
                 아이스크림
               </Link>
             </li>
             <li>
-              <Link to="/snack/cookie" className="sidebar-link">
+              <Link
+                to="/snack/cookie"
+                className="sidebar-link"
+                onClick={() => handleCategory("cookie")}
+              >
                 과자 / 쿠키
               </Link>
             </li>
             <li>
-              <Link to="/snack/chocolate" className="sidebar-link">
+              <Link
+                to="/snack/chocolate"
+                className="sidebar-link"
+                onClick={() => handleCategory("chocolate")}
+              >
                 초콜릿 / 캔디
               </Link>
             </li>
@@ -181,7 +196,7 @@ function App() {
             exact
             path="/snack/:category"
             render={() => {
-              handleCategory(window.location.href.slice(28));
+              // handleCategory(window.location.href.slice(28));
               return <SnackList snacks={snack} />;
             }}
           />

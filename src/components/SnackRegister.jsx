@@ -1,4 +1,4 @@
-import React, { Component, ReactDOM, useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import colorLogo from "../images/color_snack.png";
 import SnackTag, {
@@ -18,7 +18,7 @@ import "antd/dist/antd.css";
 
 import "../css/SnackRegister.scss";
 import { Select } from "antd";
-import { Checkbox, Row, Col } from "antd";
+import { Checkbox, Col } from "antd";
 const { Option } = Select;
 var i = 0;
 var bean = 0,
@@ -249,7 +249,7 @@ const SnackRegister = () => {
     form.append("sulfite", sulfite);
     form.append("atsodium", atsodium);
     form.append("color", color);
-    form.append("MSG", MSG);
+    form.append("msg", MSG);
     form.append("fish", fish);
     form.append("fork", fork);
     form.append("soft", soft);

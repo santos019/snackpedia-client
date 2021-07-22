@@ -9,12 +9,12 @@ function SnackList({ snacks, category }) {
     return <div>없어!</div>;
   } else {
     allSnack = snacks.map((snack) => {
-      console.log(snack.snackThumbnailPath);
       return (
         <Snack
           id={snack.id}
           key={snack.id}
           image={snack.snackImage}
+          snack={snack}
           path={snack.snackThumbnailPath}
         />
       );

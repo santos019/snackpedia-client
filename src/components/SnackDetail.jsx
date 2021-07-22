@@ -45,27 +45,43 @@ class SnackDetail extends Component {
       history.push("/");
     }
 
-    axios.get("http://localhost:3000/data/comment.json").then((res) => {
-      this.setState({ comment: res.data.comment });
+    // 처음 과자 댓글 들고오기
+    axios
+      .get(`http://localhost:8080/comment/${this.props.location.state.id}`)
+      .then((res) => {
+        this.setState({ comment: res.data.comment });
 
-      this.setState({
-        allComment: res.data.comment.map((comment) => {
-          return (
-            <Comment
-              id={comment.id}
-              key={comment.id}
-              content={comment.content}
-            />
-          );
-        }),
+        this.setState({
+          allComment: res.data.map((comment) => {
+            return (
+              <Comment
+                id={comment.id}
+                key={comment.id}
+                userName={comment.userName}
+                content={comment.content}
+              />
+            );
+          }),
+        });
       });
-
-      console.log(this.state.comment);
-    });
   }
 
   onAllComments(comment) {
-    this.setState({ allComment: this.state.allComment.push(comment) });
+    const { allComment } = this.state;
+
+    this.setState({
+      allComment: [
+        ...allComment,
+        <Comment
+          id={comment.id}
+          key={comment.id}
+          userName={comment.userName}
+          content={comment.content}
+        />,
+      ],
+    });
+
+    console.log("업데이트된 댓글들", this.state.allComment);
   }
 
   render() {
@@ -74,20 +90,26 @@ class SnackDetail extends Component {
 
     const { state } = this.props.location;
 
+    console.log(state);
+
     if (state === undefined) {
       return null;
     } else {
       return (
         <div className="detail">
-          <h1>카테고리</h1>
+          <h1>{state.snack.category}</h1>
           <hr />
           <div className="detail-main">
             <div className="detail-main-img-div">
-              <img src={state.image} alt="snack" />
+              <img
+                id={state.id}
+                src={`http://localhost:3000/images/${state.path}`}
+                alt="snack"
+              />
             </div>
 
             <div className="detail-main-info-div">
-              <h2>과자 이름</h2>
+              <h2>{state.id}</h2>
               <hr />
               <div className="detail-main-info-tag">
                 <div className="tag">#바삭함</div>
@@ -152,7 +174,7 @@ class SnackDetail extends Component {
               value="댓글 달기"
               onClick={this.onClick}
             /> */}
-            <Content onAllComments={this.onAllComments} />
+            <Content onAllComments={this.onAllComments} snackId={state.id} />
           </div>
 
           <div className="detail-comment-div">
