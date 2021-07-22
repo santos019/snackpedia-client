@@ -11,15 +11,43 @@ function Content({ onAllComments }) {
   };
 
   const onClick = (e) => {
-    axios({
-      method: "POST",
-      url: "http://localhost:8080/comment/regist",
-      data: {
-        // content: this.state.content,
-        // TODO 연습삼아 과자 등록여기서 해보기
-        // TODO 댓글 등록할 때 Session에 유저테이블의 id를 줘서 댓글 등록할 때 find 한 다음 저장하고 댓글 저장
-
-        snack: {
+    // axios({
+    //   method: "POST",
+    //   url: "http://localhost:8080/comment/regist",
+    //   data: {
+    //     // content: this.state.content,
+    //     // TODO 연습삼아 과자 등록여기서 해보기
+    //     // TODO 댓글 등록할 때 Session에 유저테이블의 id를 줘서 댓글 등록할 때 find 한 다음 저장하고 댓글 저장
+    //     snackName: "꼬깔콘",
+    //     sodium: 10,
+    //     protein: 10,
+    //     fat: 10,
+    //     calories: 10,
+    //     chol: 10,
+    //     sugar: 10,
+    //     carbo: 10,
+    //     amount: 10,
+    //     snackPath: null,
+    //     category: "snack",
+    //     oily: 0,
+    //     spicy: 0,
+    //     sweet: 0,
+    //     salty: 0,
+    //     sour: 1,
+    //     flat: 1,
+    //     crispy: 1,
+    //     soft: 1,
+    //     milk: "milk",
+    //     bean: "bean",
+    //     wheat: "wheat",
+    //     egg: "egg",
+    //     fork: "fork",
+    //     fish: "fish",
+    //   },
+    // })
+    axios
+      .post("http://localhost:8080/comment/regist", null, {
+        params: {
           snackName: "꼬깔콘",
           sodium: 10,
           protein: 10,
@@ -31,8 +59,6 @@ function Content({ onAllComments }) {
           amount: 10,
           snackPath: null,
           category: "snack",
-        },
-        tag: {
           oily: 0,
           spicy: 0,
           sweet: 0,
@@ -41,9 +67,6 @@ function Content({ onAllComments }) {
           flat: 1,
           crispy: 1,
           soft: 1,
-        },
-
-        allergy: {
           milk: "milk",
           bean: "bean",
           wheat: "wheat",
@@ -51,8 +74,7 @@ function Content({ onAllComments }) {
           fork: "fork",
           fish: "fish",
         },
-      },
-    })
+      })
       .then((res) => {
         console.log("Regist");
         // onAllComments(res);
