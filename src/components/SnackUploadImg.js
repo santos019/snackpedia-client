@@ -147,13 +147,13 @@ function SnackUploadImg() {
                   src={item}
                   alt="First slide"
                   style={{
-                    width: "310px",
-                    height: "310px",
+                    width: "300px",
+                    height: "300px",
                     //height: "300px",
-                    marginLeft: "-5%",
-                    marginTop: "-5%",
+                    marginLeft: "-1%",
+                    marginTop: "-1.2%",
                     //marginBottom: "10%",
-                    border: " 4px dashed  #e94444",
+                    border: " 4.5px dashed  #e94444",
                     borderRadius: "2em",
                   }}
                 />
