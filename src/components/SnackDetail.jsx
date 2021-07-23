@@ -197,7 +197,7 @@ class SnackDetail extends Component {
       return (
         <div className="detail">
           <h1>
-            {state.snack.category === "snackcookie"
+            {state.snack.category === "cookie"
               ? "과자 / 쿠키"
               : state.snack.category === "income"
               ? "수입제과"
