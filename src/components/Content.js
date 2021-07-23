@@ -2,56 +2,32 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../css/MyDetail.css";
 
-var re_comment = [];
-// var result = {
-//   id: 0,
-//   content: 0,
-//   userName: 0,
-//   user: 0,
-//   snack: 0,
-// };
-function Content({ onAllComments }) {
+function Content({ onAllComments, snackId }) {
   const [content, setContent] = useState("");
 
   const onChange = (e) => {
     setContent(e.target.value);
-    console.log(content);
   };
 
   const onClick = (e) => {
-    axios
-      .post("http://localhost:8080/comment/regist", null, {
-        params: {
-          id: 9,
-          content: content,
-          userName: 7,
-          user: 8,
-          snack: 9,
-        },
-      })
+    let form = new FormData();
+    let userName = document.cookie.match("(^|;) ?" + "key" + "=([^;]*)(;|$)");
+
+    form.append("content", content);
+    form.append("userName", userName[2]);
+    form.append("snackId", snackId);
+
+    axios({
+      method: "POST",
+      url: "http://localhost:8080/comment/regist",
+      data: form,
+    })
       .then((res) => {
-        let result = {
-          id: 0,
-          content: 0,
-          userName: 0,
-          user: 0,
-          snack: 0,
-        };
-        //console.log("res=", res.data);
-
-        result.id = res.data.id;
-        result.content = res.data.content;
-        result.userName = res.data.userName;
-        result.user = res.data.user;
-        result.snack = res.data.snack;
-
-        console.log(result);
-        // re_comment = res;
-        // console.log("resww=", re_comment);
-        onAllComments(result);
+        console.log(res.data);
+        onAllComments(res.data);
       })
       .catch((err) => {
-        console.log("XX");
+        console.log(err);
       });
 
     setContent("");
@@ -76,4 +52,4 @@ function Content({ onAllComments }) {
 }
 
 export default Content;
-export { re_comment };
+
