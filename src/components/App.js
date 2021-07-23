@@ -108,8 +108,9 @@ function App() {
                     let date = new Date();
                     date.setDate(date.getDate() - 100);
                     document.cookie = `key=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
-
+                    alert("로그아웃 하셨습니다");
                     history.push("/");
+                    window.location.reload();
                   }}
                 >
                   Signout

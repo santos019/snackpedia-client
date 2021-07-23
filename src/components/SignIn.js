@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../css/SignIn.css";
 import { useHistory } from "react-router";
 
-function SignIn({ handleSignin }) {
+function SignIn() {
   const [userEmail, setuserEmail] = useState("");
   const [userPassword, setuserPassword] = useState("");
 
@@ -42,9 +42,8 @@ function SignIn({ handleSignin }) {
 
             document.cookie = cookie;
 
-            handleSignin();
-
             history.push("/");
+            window.location.reload();
           } else {
             // res.data === 0
             alert("E-MAIL과 PASSWORD를 확인해주세요!");
